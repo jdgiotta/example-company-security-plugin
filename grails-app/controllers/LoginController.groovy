@@ -60,6 +60,13 @@ class LoginController {
         response.setHeader 'Location', SpringSecurityUtils.securityConfig.auth.ajaxLoginFormUrl
         response.sendError HttpServletResponse.SC_UNAUTHORIZED
     }
+	
+    /**
+     * Use for renewing user session for UI session control
+     */
+    def touchSession = {
+        render "OK"
+    }
 
     /**
      * Show denied page.

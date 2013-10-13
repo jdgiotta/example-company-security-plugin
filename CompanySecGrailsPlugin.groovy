@@ -27,6 +27,11 @@ Brief summary/description of the plugin.
             grails.plugins.springsecurity.ldap.context.server = 'ldap://<myip>'
             grails.plugins.springsecurity.ldap.context.managerDn = 'CN=<ldap_user>,CN=Users,DC=company,DC=local'
             grails.plugins.springsecurity.ldap.context.managerPassword = 'secret'
+			
+            grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.mycompany.StdUser'
+            grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.mycompany.StdUserStdRole'
+            grails.plugins.springsecurity.authority.className = 'com.mycompany.StdRole'
+            grails.plugins.springsecurity.useSecurityEventListener = true
         }
 
     }
