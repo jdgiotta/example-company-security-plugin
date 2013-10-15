@@ -22,6 +22,7 @@ Brief summary/description of the plugin.
 
     def doWithConfig = { config ->
         application {
+            grails.plugins.springsecurity.ldap.active = true
             grails.plugins.springsecurity.ldap.authorities.retrieveDatabaseRoles = true
             grails.plugins.springsecurity.ldap.authorities.retrieveGroupRoles = true
             grails.plugins.springsecurity.ldap.context.server = 'ldap://<myip>'
@@ -32,6 +33,11 @@ Brief summary/description of the plugin.
             grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.mycompany.StdUserStdRole'
             grails.plugins.springsecurity.authority.className = 'com.mycompany.StdRole'
             grails.plugins.springsecurity.useSecurityEventListener = true
+            // more springsecurity settings...
+
+            if (grails.plugins.springsecurity.ldap.active) {
+                grails.plugins.springsecurity.providerNames = ['ldapAuthProvider', 'anonymousAuthenticationProvider']
+            }
         }
 
     }
